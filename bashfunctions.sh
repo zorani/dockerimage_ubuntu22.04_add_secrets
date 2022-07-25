@@ -4,7 +4,7 @@
 #Secret files are details you do not want pushed to your docker contexts git repo.
 #For example git-credentials and git-config files.
 #Place your secret files at a chosen location, here ../contextsecrets is relativly addressed
-secretlocation='../contextsecrets'
+secretlocation='../../contextsecrets'
 
 declare -a secretfiles=(".git-credentials" ".gitconfig")
 
