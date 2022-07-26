@@ -32,7 +32,7 @@ remove_secrets () {
 }
 
 #Your env files, which contain docker ENV notation should be kept in the secretlocation.
-declare -a envfiles=()
+declare -a envfiles=("awsenvs","digioenvs")
 
 add_envs_to_dockerfile_tmp () {
 
