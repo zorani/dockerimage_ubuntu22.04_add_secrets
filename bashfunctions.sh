@@ -37,6 +37,7 @@ declare -a envfiles=("awsenvs" "digioenvs")
 add_envs_to_dockerfile_tmp () {
 
     cp Dockerfile $1
+    echo $'\n' >> $1
     for envfile in "${envfiles[@]}"
     do 
         envfilelocation="$secretlocation/$envfile"
