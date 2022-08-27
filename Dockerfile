@@ -19,5 +19,8 @@ ARG groupname=dockdev
 COPY --chown=${username}:${groupname}  .git-credentials /home/ubuntu/
 COPY --chown=${username}:${groupname}  .gitconfig /home/ubuntu/
 
+#Make sure your context contains these directories
+ADD  --chown=${username}:${groupname} .ssh /home/ubuntu/.ssh/
+
 USER ubuntu
 WORKDIR /home/ubuntu/

@@ -7,6 +7,7 @@
 secretlocation='../../contextsecrets'
 
 declare -a secretfiles=(".git-credentials" ".gitconfig")
+declare -a secretdirs=(".ssh")
 
 add_secrets () {
 
@@ -15,6 +16,15 @@ add_secrets () {
         secretfilelocation="$secretlocation/$secretfile"
         if [[ -f $secretfilelocation ]]; then
             cp $secretfilelocation . 
+        fi
+    done
+
+    for secretdir in "${secretdirs[@]}"
+    do 
+        secretdirlocation="$secretlocation/$secretdir"
+        if [[ -d $secretdirlocation ]]; then
+
+            cp -r $secretdirlocation .
         fi
     done
 
@@ -27,6 +37,13 @@ remove_secrets () {
         if [[ -f $secretfile ]]; then
             rm $secretfile
         fi
+    done
+
+    for secretdir in "${secretdirs[@]}"
+    do
+        if [[ -d $secretdir ]]; then 
+            rm -rf $secretdir
+        fi 
     done
 
 }
