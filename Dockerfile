@@ -21,6 +21,8 @@ COPY --chown=${username}:${groupname}  .gitconfig /home/ubuntu/
 
 #Make sure your context contains these directories
 ADD  --chown=${username}:${groupname} .ssh /home/ubuntu/.ssh/
+RUN /usr/bin/chmod 700 /home/ubuntu/.ssh/
+RUN /usr/bin/chmod 600 /home/ubuntu/.ssh/*
 
 USER ubuntu
 WORKDIR /home/ubuntu/
